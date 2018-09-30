@@ -18,7 +18,7 @@ public class AlunoResource {
 
             Aluno aluno = new Aluno(nome, n1, n2);
 
-            return Response.ok("{ \"media\": " + aluno.getMedia() + ", \"aprovado\": " + aluno.isAprovado() + " }").build();
+            return Response.ok(aluno).build();
         } catch (NumberFormatException ex) {
             return Response.status(Response.Status.BAD_REQUEST).build();
         }
