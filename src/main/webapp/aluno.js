@@ -18,4 +18,20 @@ $(document).ready(function () {
             }
         });
     });
+
+    $('#calcular-post').click(function () {
+        $.ajax('webresources/aluno', {
+            method: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify({
+                nome: $('#nome').val(),
+                p1: $('#p1').val(),
+                p2: $('#p2').val()
+            }),
+            success: function (data) {
+                $('#media').val(data.media);
+                $('#aprovado').val(data.aprovado ? 'Sim' : 'Não');
+            }
+        });
+    });
 });

@@ -1,6 +1,8 @@
 package br.pro.ramon.dcs.jaxrs.aluno;
 
+import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
@@ -22,6 +24,13 @@ public class AlunoResource {
         } catch (NumberFormatException ex) {
             return Response.status(Response.Status.BAD_REQUEST).build();
         }
+    }
+
+    @POST
+    @Consumes("application/json; charset=UTF-8")
+    @Produces("application/json; charset=UTF-8")
+    public Aluno postAluno(Aluno aluno) {
+        return aluno;
     }
 
 }
